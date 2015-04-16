@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<HTML lang="en">
+	<head>
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  		<meta charset="UTF-8">
+        <link href = "css/bootstrap.min.css" rel = "stylesheet">
+        <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>	
+	</head> 
+	<body>
+		<div class = "navbar navbar-inverse navbar-static-top">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="encryption.html">Encryption</a></li>
+				<li><a href="decryption.html">Decryption</a></li>
+			 </ul>
+		</div>
+			
+		<div class="container">		
+			<div>
+				<h1>Encryption</h1>
+			</div>
+			
+			<div>
+				<form action="javascript:encrypt()">
+					<input id="message" type="text" class="form-control" placeholder="Enter message">					
+					<button class="btn btn-default">Encrypt message</button>
+				</form>
+			</div>
+			
+			<div class="row">
+				<div class="col-lg-9">
+					<div id="caesar-encrypt"></div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-lg-9">
+					<div id="polyalphabetic-encrypt"></div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-lg-9">
+					<div id="one-time-pad-encrypt"></div>
+					<div id="one-time-pad-key"></div>
+				</div>
+			</div>
+		</div>
+
+		<script src = "js/encryption.js"></script>
+        <script src = "js/bootstrap.js"></script>
+	</body>
+</HTML>
