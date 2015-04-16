@@ -25,13 +25,11 @@ function caesar(message) {
 
 function polyalphabetic(message) {
 	var seed = "Tyler"; // The key
-	var seedPos = -1; // The current char position in the seed
 	var encryptedMessage = "";
 	
 	for (var i = 0; i < message.length; i++) {
-		var seedPos = (seedPos + 1) % seed.length; // loop through the length of the seed
 		// Shift the ASCII value within the range of 32 to 126(the valid ASCII values).
-		var charAscii = ((message.charCodeAt(i) + seed.charCodeAt(seedPos) -  64) % 95) + 32;
+		var charAscii = ((message.charCodeAt(i) + seed.charCodeAt(i % seed.length) -  64) % 95) + 32;
 		encryptedMessage += String.fromCharCode(charAscii);
 	}
 	
