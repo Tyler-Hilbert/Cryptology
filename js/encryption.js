@@ -1,31 +1,32 @@
 function encrypt() {
 	var message = document.getElementById('message').value;
+	var key = document.getElementById('key').value;
 	
-	caesar(message);
-	polyalphabetic(message);
+	caesar(message, key);
+	polyalphabetic(message, key);
 	oneTimePad(message);
 }
 
-function caesar(message) {
+function caesar(message, key) {
 	var encryptedMessage = "";
-	var randomKey = Math.floor(Math.random() * 94);
+	key = parseInt(key);
 
 	for (var i = 0; i < message.length; i++) {
 		if (message.charCodeAt(i) == 32) { // Don't shift spaces to give away the shift key
 			encryptedMessage += "  ";
 		} else { 
 			// Shift the ASCII value within the range of 33 to 126(the valid ASCII values).
-			var charAscii = ((message.charCodeAt(i) - 33 + randomKey) % 94) + 33;
+			var charAscii = ((message.charCodeAt(i) - 33 + key) % 94) + 33;
 			encryptedMessage += String.fromCharCode(charAscii);
 		}
 	}
 	
-	document.getElementById('caesar-encrypt').textContent = "Caesar cipher: Key: " + randomKey + ": " + encryptedMessage;
+	document.getElementById('caesar-encrypt').textContent = "Caesar cipher: " + encryptedMessage;
 }
 
-function polyalphabetic(message) {
-	var seed = "Tyler"; // The key
+function polyalphabetic(message, seed) {
 	var encryptedMessage = "";
+
 	
 	for (var i = 0; i < message.length; i++) {
 		// Shift the ASCII value within the range of 32 to 126(the valid ASCII values).
@@ -33,7 +34,7 @@ function polyalphabetic(message) {
 		encryptedMessage += String.fromCharCode(charAscii);
 	}
 	
-	document.getElementById('polyalphabetic-encrypt').textContent = "Polyalphabetic cipher: Key: " + seed + ": " + encryptedMessage;	
+	document.getElementById('polyalphabetic-encrypt').textContent = "Polyalphabetic cipher: " + encryptedMessage;	
 }
 
 function oneTimePad(message) {
