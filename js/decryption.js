@@ -44,6 +44,18 @@ function polyalphabetic(message, seed) {
 	document.getElementById('decrypted-message').textContent = "Decrypted message: " + decryptedMessage;
 }
 
+function otp(message, seed) {
+	var keys = seed.split(",");
+	var decryptedMessage = "";
+	
+	for (var i = 0; i < keys.length && i < message.length; i++) {
+		var key = parseInt(keys[i].trim());
+		decryptedMessage += shift(message[i], key, 32, 126);
+	}
+	
+	document.getElementById('decrypted-message').textContent = "Decrypted message: " + decryptedMessage;
+}
+
 /**
 	Shifts the char based off the key and then puts it inside the range give
 */
