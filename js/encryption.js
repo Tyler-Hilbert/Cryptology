@@ -4,7 +4,7 @@ function encrypt() {
 	
 	caesar(message, key);
 	polyalphabetic(message, key);
-	oneTimePad(message);
+	oneTimePad(message, key);
 }
 
 function caesar(message, key) {
@@ -37,30 +37,20 @@ function polyalphabetic(message, seed) {
 	document.getElementById('polyalphabetic-encrypt').textContent = "Polyalphabetic cipher: " + encryptedMessage;	
 }
 
-function oneTimePad(message) {
-	// create list of
-	var key = [];
-	for (var i = 0; i < message.length; i++) {
-		key.push(Math.floor(Math.random() * 94));
+function oneTimePad(message, key) {
+	// Parse list of keys
+	var keys = key.split(",");
+	for (var i = 0; i < keys.length; i++) {
+		keys[i] = parseInt(keys[i].trim());
 	}
 	
 	var encryptedMessage = "";
 	
 	// Encrypt
-	for (var i = 0; i < message.length; i++) {
+	for (var i = 0; i < message.length && i < keys.length; i++) {
 		// Shift the ASCII value within the range of 32 to 126(the valid ASCII values).
-		var charAscii = ((message.charCodeAt(i) + key[i] - 32) % 95) + 32;
+		var charAscii = ((message.charCodeAt(i) + keys[i] - 32) % 95) + 32;
 		encryptedMessage += String.fromCharCode(charAscii);
-	}
-	
-	// Output
-	document.getElementById('one-time-pad-key').innerHTML = "Key: ";
-	for (var i = 0; i < key.length; i++) {
-		var output = key[i];
-		if (i < key.length - 1) {
-			output += ", ";
-		}
-		document.getElementById('one-time-pad-key').innerHTML += output;
 	}
 	
 	document.getElementById('one-time-pad-encrypt').textContent = "One time pad cipher: " + encryptedMessage;	
