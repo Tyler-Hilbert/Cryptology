@@ -21,7 +21,7 @@ function caesar(message, key) {
 		}
 	}
 	
-	document.getElementById('caesar-encrypt').textContent = "Caesar cipher: " + encryptedMessage;
+	document.getElementById('caesar-encrypt').textContent = encryptedMessage;
 }
 
 function polyalphabetic(message, seed) {
@@ -34,7 +34,7 @@ function polyalphabetic(message, seed) {
 		encryptedMessage += String.fromCharCode(charAscii);
 	}
 	
-	document.getElementById('polyalphabetic-encrypt').textContent = "Polyalphabetic cipher: " + encryptedMessage;	
+	document.getElementById('polyalphabetic-encrypt').textContent = encryptedMessage;	
 }
 
 function oneTimePad(message, key) {
@@ -53,6 +53,6 @@ function oneTimePad(message, key) {
 		encryptedMessage += String.fromCharCode(charAscii);
 	}
 	
-	document.getElementById('one-time-pad-encrypt').textContent = "One time pad cipher: " + encryptedMessage;	
+	document.getElementById('one-time-pad-encrypt').textContent = encryptedMessage;	
 	
 }

@@ -17,6 +17,7 @@
 		<div class="container">
 			<div>
 				<h1>Decryption</h1>
+				<hr>
 			</div>
 			
 			<div>
@@ -27,13 +28,20 @@
 							<option value="polyalphabetic">Polyalphabetic</option>
 							<option value="otp">One time pad</option>
 						</select>
-						
+					</div>
+					
+					<div class="form-group">
 						<input id="encrypted-message" type="text" class="form-control" placeholder="Enter encrypted message">
+					</div>
+					<div class="form-group">
 						<input id="key" type="text" class="form-control" placeholder="Enter key">
+					</div>
+					<div class="form-group">
 						<button class="btn btn-default">Decrypt message</button>
 					</div>
 				</form>
 				
+
 				<div id="decrypted-message"></div>
 			</div>
 		</div>
