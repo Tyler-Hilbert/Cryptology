@@ -4,8 +4,8 @@
   		<meta name="viewport" content="width=device-width, initial-scale=1.0">
   		<meta charset="UTF-8">
         <link href = "css/bootstrap.min.css" rel = "stylesheet">
-        <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>	
-	</head> 
+        <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	</head>
 	<body>
 		<div class = "navbar navbar-inverse navbar-static-top">
 			<ul class="nav navbar-nav">
@@ -13,13 +13,13 @@
 				<li class="active"><a href="decryption.html">Decryption</a></li>
 			 </ul>
 		</div>
-		
+
 		<div class="container">
 			<div>
 				<h1>Decryption</h1>
 				<hr>
 			</div>
-			
+
 			<div>
 				<form action="javascript:decrypt()">
 					<div class="form-group">
@@ -29,7 +29,7 @@
 							<option value="otp">One time pad</option>
 						</select>
 					</div>
-					
+
 					<div class="form-group">
 						<input id="encrypted-message" type="text" class="form-control" placeholder="Enter encrypted message">
 					</div>
@@ -40,12 +40,12 @@
 						<button class="btn btn-default">Decrypt message</button>
 					</div>
 				</form>
-				
+
 
 				<div id="decrypted-message"></div>
 			</div>
 		</div>
-		
+
 		<script src="js/decryption.js"</script>
         <script src = "js/bootstrap.js"></script>
 	</body>
